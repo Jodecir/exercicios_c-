@@ -4,7 +4,7 @@ namespace Revisao
 {
     internal static class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
     {
             var alunos = new Aluno[5];
             int indiceAluno = 0;
@@ -36,6 +36,13 @@ namespace Revisao
 
                         break;
                     case "2":
+                        foreach (var a in alunos)
+                        {
+                            if (!string.IsNullOrEmpty(a.Nome))
+                            {
+                                Console.WriteLine($"Aluno: {a.Nome}\nNota: {a.Nota}");
+                            }
+                        }
                         break;
                     case "3":
                         break;
