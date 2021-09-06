@@ -10,7 +10,7 @@ namespace Revisao
             int indiceAluno = 0;
             string opcaoUsuario = ObterOpcaoUsuario();
 
-            while (opcaoUsuario.ToUpper() != "X") {
+            while (!string.Equals(opcaoUsuario, "X", StringComparison.OrdinalIgnoreCase)) {
                 switch (opcaoUsuario)
                 {
                     case "1":
@@ -30,10 +30,8 @@ namespace Revisao
                         {
                             throw new ArgumentOutOfRangeException("Valor da nota deve ser decimal");
                         }
-
                         alunos[indiceAluno] = aluno;
                         indiceAluno++;
-
                         break;
                     case "2":
                         foreach (var a in alunos)
@@ -45,6 +43,21 @@ namespace Revisao
                         }
                         break;
                     case "3":
+                        decimal notaTotal = 0;
+                        var nrAlunos = 0;
+
+                        for (int i = 0; i < alunos.Length; i++)
+                        {
+                            if (!string.IsNullOrEmpty(alunos[i].Nome))
+                            {
+                                notaTotal += alunos[i].Nota;
+                                nrAlunos++;
+                            }
+                        }
+
+                        var mediaGeral = notaTotal / nrAlunos;
+                        Console.WriteLine($"Média Geral: {mediaGeral}");
+
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
