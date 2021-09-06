@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Aluno
+namespace Revisao
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
-        {
-            Aluno[] alunos = new Aluno[5];
+        private static void Main(string[] args)
+    {
+            var alunos = new Aluno[5];
             int indiceAluno = 0;
             string opcaoUsuario = ObterOpcaoUsuario();
 
@@ -15,16 +15,19 @@ namespace Aluno
                 {
                     case "1":
                         Console.WriteLine("Informe nome do Aluno: ");
-                        var aluno = new Aluno();
-                        aluno.Nome = Console.ReadLine();
+                        var aluno = new Aluno
+                        {
+                            Nome = Console.ReadLine()
+                        };
 
-                        Console.WriteLine("Informe a nota do Aluno:")
+                        Console.WriteLine("Informe a nota do Aluno:");
 
-                        if (decimal.Parse(Console.ReadLine(), out decimal nota))
+                        if (decimal.TryParse(Console.ReadLine(), out decimal nota))
                         {
                             aluno.Nota = nota;
                         }
-                        else {
+                        else
+                        {
                             throw new ArgumentOutOfRangeException("Valor da nota deve ser decimal");
                         }
 
@@ -39,12 +42,12 @@ namespace Aluno
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-                
+
                 opcaoUsuario = ObterOpcaoUsuario();
             }
         }
 
-        private static string ObterOpcaoUsuario() 
+        private static string ObterOpcaoUsuario()
         {
             Console.WriteLine();
             Console.WriteLine("Informe a opção desejada:");
