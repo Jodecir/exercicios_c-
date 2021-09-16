@@ -18,12 +18,21 @@ namespace Banco
 
         public bool Sacar(double valorSaque)
         {
-            if(this.Saldo - valorSaque <(this.Credito *-1)){
+            if(this.Saldo - valorSaque < (this.Credito *-1)){
                 Console.WriteLine("Saldo Insuficiente!");
                 return false;
             }
 
             this.Saldo -= valorSaque;
+
+            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+
+            return true;
+        }
+
+        public bool Depositar(double valorDeposito)
+        {
+            this.Saldo -= valorDeposito;
 
             Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
 
