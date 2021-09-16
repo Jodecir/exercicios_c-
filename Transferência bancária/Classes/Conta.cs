@@ -3,7 +3,7 @@ using System;
 namespace Banco
 {
     public class Conta
-    {  
+    {
         private TipoConta TipoConta { get; set; }
         private double Saldo { get; set; }
         private double Credito { get; set; }
@@ -26,6 +26,8 @@ namespace Banco
           this.Saldo = this.Saldo - valorSaque;
 
           Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+
+          return true;
         }
     }
 }
