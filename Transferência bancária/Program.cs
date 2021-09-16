@@ -2,14 +2,12 @@
 
 namespace Banco
 {
-    static class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Conta minhaConta = new Conta();
-            minhaConta.Nome = "Jodecir";
-
-            Console.WriteLine();
+            Conta minhaConta = new(TipoConta.PessoaFisica, 0, 0, "Jodecir");
+            Console.WriteLine(minhaConta.ToString());
         }
     }
 }
