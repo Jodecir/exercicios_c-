@@ -5,7 +5,7 @@ namespace Banco
 {
     internal static class Program
     {
-        static List<Conta> listContas = new List<Conta>();
+        private static readonly List<Conta> listContas = new List<Conta>();
         static void Main(string[] args)
 		{
 			string opcaoUsuario = ObterOpcaoUsuario();
