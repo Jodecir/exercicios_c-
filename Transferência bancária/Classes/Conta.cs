@@ -30,13 +30,18 @@ namespace Banco
             return true;
         }
 
-        public bool Depositar(double valorDeposito)
-        {
-            this.Saldo -= valorDeposito;
+        public void Depositar(double valorDeposito)
+		{
+			this.Saldo += valorDeposito;
 
             Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+		}
 
-            return true;
+        public void Transferir(double valorTransferencia, contaDestino)
+        {
+            if(this.Sacar(valorTransferencia)){
+                contaDestino.Depositar(valorTransferencia);
+            }
         }
     }
 }
