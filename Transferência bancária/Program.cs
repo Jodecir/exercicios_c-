@@ -5,8 +5,8 @@ namespace Banco
 {
     internal static class Program
     {
-        private static readonly List<Conta> listContas = new List<Conta>();
-        static void Main(string[] args)
+        private static readonly List<Conta> listContas = new();
+        private static void Main(string[] args)
 		{
 			string opcaoUsuario = ObterOpcaoUsuario();
 
@@ -15,9 +15,10 @@ namespace Banco
 				switch (opcaoUsuario)
 				{
 					case "1":
+						InserirConta();
 						break;
 					case "2":
-						InserirConta();
+                        ListarContas();
 						break;
 					case "3":
 						break;
@@ -36,7 +37,7 @@ namespace Banco
 				opcaoUsuario = ObterOpcaoUsuario();
 			}
         }
-        static void InserirConta()
+        private static void InserirConta()
 		{
 			Console.WriteLine("Inserir nova conta");
 
@@ -52,22 +53,39 @@ namespace Banco
 			Console.Write("Digite o crédito: ");
 			double entradaCredito = double.Parse(Console.ReadLine());
 
-			Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
+			Conta novaConta = new(tipoConta: (TipoConta)entradaTipoConta,
 										saldo: entradaSaldo,
 										credito: entradaCredito,
 										nome: entradaNome);
 
 			listContas.Add(novaConta);
 		}
+        private static void ListarContas()
+		{
+			Console.WriteLine("Listar contas");
 
-        static string ObterOpcaoUsuario()
+			if (listContas.Count == 0)
+			{
+				Console.WriteLine("Nenhuma conta cadastrada.");
+				return;
+			}
+
+			for (int i = 0; i < listContas.Count; i++)
+			{
+				Conta conta = listContas[i];
+				Console.Write("#{0} - ", i);
+				Console.WriteLine(conta);
+			}
+		}
+
+        private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
 			Console.WriteLine("SS-Bank Segurança e Simplicidade!!!");
 			Console.WriteLine("Informe a opção desejada:");
 
-			Console.WriteLine("1- Listar contas");
-			Console.WriteLine("2- Inserir nova conta");
+			Console.WriteLine("1- Inserir nova conta");
+			Console.WriteLine("2- Listar contas");
 			Console.WriteLine("3- Transferir");
 			Console.WriteLine("4- Sacar");
 			Console.WriteLine("5- Depositar");
