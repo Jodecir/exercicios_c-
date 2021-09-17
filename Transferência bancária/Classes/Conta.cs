@@ -37,11 +37,11 @@ namespace Banco
             Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
 		}
 
-        public void Transferir(double valorTransferencia, contaDestino)
-        {
-            if(this.Sacar(valorTransferencia)){
+        public void Transferir(double valorTransferencia, Conta contaDestino)
+		{
+			if (this.Sacar(valorTransferencia)){
                 contaDestino.Depositar(valorTransferencia);
             }
-        }
+		}
     }
 }
