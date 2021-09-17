@@ -21,6 +21,7 @@ namespace Banco
                         ListarContas();
 						break;
 					case "3":
+                        Sacar();
 						break;
 					case "4":
 						break;
@@ -77,6 +78,16 @@ namespace Banco
 				Console.WriteLine(conta);
 			}
 		}
+        private static void Sacar()
+		{
+			Console.Write("Digite o número da conta: ");
+			int indiceConta = int.Parse(Console.ReadLine());
+
+			Console.Write("Digite o valor a ser sacado: ");
+			double valorSaque = double.Parse(Console.ReadLine());
+
+            listContas[indiceConta].Sacar(valorSaque);
+		}
 
         private static string ObterOpcaoUsuario()
 		{
@@ -86,8 +97,8 @@ namespace Banco
 
 			Console.WriteLine("1- Inserir nova conta");
 			Console.WriteLine("2- Listar contas");
-			Console.WriteLine("3- Transferir");
-			Console.WriteLine("4- Sacar");
+			Console.WriteLine("3- Sacar");
+			Console.WriteLine("4- Transferir");
 			Console.WriteLine("5- Depositar");
             Console.WriteLine("C- Limpar Tela");
 			Console.WriteLine("X- Sair");
