@@ -10,7 +10,7 @@ namespace Banco
     {
 			string opcaoUsuario = ObterOpcaoUsuario();
 
-			while (opcaoUsuario.ToUpper() != "X")
+			while (!string.Equals(opcaoUsuario, "X", StringComparison.OrdinalIgnoreCase))
 			{
 				switch (opcaoUsuario)
 				{
