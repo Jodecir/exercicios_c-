@@ -27,6 +27,7 @@ namespace Banco
 						Depositar();
 						break;
 					case "5":
+						Transferir();
 						break;
           case "C":
 						Console.Clear();
@@ -99,6 +100,21 @@ namespace Banco
 
       listContas[indiceConta].Depositar(valorDeposito);
 		}
+
+		private static void Transferir()
+		{
+			Console.Write("Digite o número da conta de origem: ");
+			int indiceContaOrigem = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o número da conta de destino: ");
+			int indiceContaDestino = int.Parse(Console.ReadLine());
+
+			Console.Write("Digite o valor a ser transferido: ");
+			double valorTransferencia = double.Parse(Console.ReadLine());
+
+      listContas[indiceContaOrigem].Transferir(valorTransferencia, listContas[indiceContaDestino]);
+		}
+
     private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
