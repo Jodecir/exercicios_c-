@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Banco
 {
-    internal static class Program
-    {
-        private static readonly List<Conta> listContas = new();
-        private static void Main(string[] args)
+	internal static class Program
+	{
+		private static readonly List<Conta> listContas = new();
+		private static void Main(string[] args)
 		{
 			string opcaoUsuario = ObterOpcaoUsuario();
 
@@ -18,16 +18,17 @@ namespace Banco
 						InserirConta();
 						break;
 					case "2":
-                        ListarContas();
+            ListarContas();
 						break;
 					case "3":
-                        Sacar();
+            Sacar();
 						break;
 					case "4":
+						Depositar();
 						break;
 					case "5":
 						break;
-                    case "C":
+          case "C":
 						Console.Clear();
 						break;
 
@@ -37,8 +38,8 @@ namespace Banco
 
 				opcaoUsuario = ObterOpcaoUsuario();
 			}
-        }
-        private static void InserirConta()
+    }
+    private static void InserirConta()
 		{
 			Console.WriteLine("Inserir nova conta");
 
@@ -55,13 +56,13 @@ namespace Banco
 			double entradaCredito = double.Parse(Console.ReadLine());
 
 			Conta novaConta = new(tipoConta: (TipoConta)entradaTipoConta,
-										saldo: entradaSaldo,
-										credito: entradaCredito,
-										nome: entradaNome);
+														saldo: entradaSaldo,
+														credito: entradaCredito,
+														nome: entradaNome);
 
 			listContas.Add(novaConta);
 		}
-        private static void ListarContas()
+    private static void ListarContas()
 		{
 			Console.WriteLine("Listar contas");
 
@@ -78,7 +79,7 @@ namespace Banco
 				Console.WriteLine(conta);
 			}
 		}
-        private static void Sacar()
+    private static void Sacar()
 		{
 			Console.Write("Digite o número da conta: ");
 			int indiceConta = int.Parse(Console.ReadLine());
@@ -86,10 +87,19 @@ namespace Banco
 			Console.Write("Digite o valor a ser sacado: ");
 			double valorSaque = double.Parse(Console.ReadLine());
 
-            listContas[indiceConta].Sacar(valorSaque);
+      listContas[indiceConta].Sacar(valorSaque);
 		}
+		private static void Depositar()
+		{
+			Console.Write("Digite o número da conta: ");
+			int indiceConta = int.Parse(Console.ReadLine());
 
-        private static string ObterOpcaoUsuario()
+			Console.Write("Digite o valor a ser depositado: ");
+			double valorDeposito = double.Parse(Console.ReadLine());
+
+      listContas[indiceConta].Depositar(valorDeposito);
+		}
+    private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
 			Console.WriteLine("SS-Bank Segurança e Simplicidade!!!");
@@ -98,15 +108,15 @@ namespace Banco
 			Console.WriteLine("1- Inserir nova conta");
 			Console.WriteLine("2- Listar contas");
 			Console.WriteLine("3- Sacar");
-			Console.WriteLine("4- Transferir");
-			Console.WriteLine("5- Depositar");
-            Console.WriteLine("C- Limpar Tela");
+			Console.WriteLine("4- Depositar");
+			Console.WriteLine("5- Transferir");
+      Console.WriteLine("C- Limpar Tela");
 			Console.WriteLine("X- Sair");
 			Console.WriteLine();
 
 			string opcaoUsuario = Console.ReadLine().ToUpper();
 			Console.WriteLine();
 			return opcaoUsuario;
-        }
     }
+  }
 }
