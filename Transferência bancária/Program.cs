@@ -6,8 +6,8 @@ namespace Banco
 	internal static class Program
 	{
 		private static readonly List<Conta> listContas = new();
-		private static void Main(string[] args)
-		{
+    private static void Main()
+    {
 			string opcaoUsuario = ObterOpcaoUsuario();
 
 			while (opcaoUsuario.ToUpper() != "X")
