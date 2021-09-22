@@ -29,6 +29,11 @@ namespace Cadastro
             return retorno;
         }
 
+        public bool RetornaExcluido()
+		{
+			return this.Excluido;
+		}
+
         public string RetornaTitulo()
         {
             return this.Titulo;

@@ -17,6 +17,7 @@ namespace Cadastro
                         InserirSerie();
                         break;
                     case "2":
+                        ListarSeries();
                         break;
                     case "3":
                         break;
@@ -63,6 +64,26 @@ namespace Cadastro
 
                 repositorio.Insere(novaSerie);
 		    }
+
+            static void ListarSeries()
+            {
+                Console.WriteLine("Listar séries");
+
+                var lista = repositorio.Lista();
+
+                if (lista.Count == 0)
+                {
+                    Console.WriteLine("Nenhuma série cadastrada.");
+                    return;
+                }
+
+                foreach (var serie in lista)
+                {
+                    var excluido = serie.RetornaExcluido();
+
+                    Console.WriteLine("#ID {0}: - {1} {2}", serie.RetornaId(), serie.RetornaTitulo(), (excluido ? "*Excluído*" : ""));
+                }
+            }
 
             static string ObterOpcaoUsuario()
 			{
