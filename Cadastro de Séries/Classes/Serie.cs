@@ -4,10 +4,10 @@ namespace Cadastro
 {
     public class Serie : EntidadeBase
     {
-        private Genero Genero { get; set; }
-        private string Titulo { get; set; }
-        private string Descricao { get; set; }
-        private int Ano { get; set; }
+        private Genero Genero { get; }
+        private string Titulo { get; }
+        private string Descricao { get; }
+        private int Ano { get; }
         public Serie(int id, Genero genero, string titulo, string descricao, int ano)
         {
             this.Id = id;
@@ -16,7 +16,7 @@ namespace Cadastro
             this.Descricao = descricao;
             this.Ano = ano;
         }
-        
+
         public override string ToString()
         {
             string retorno = "";
