@@ -1,6 +1,6 @@
 namespace Cadastro
 {
-  public struct EntidadeBase
+  public abstract class EntidadeBase
   {
     public int Id { get; protected set;}
   }
