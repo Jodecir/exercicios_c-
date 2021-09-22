@@ -26,6 +26,7 @@ namespace Cadastro
 						AtualizarSerie();
                         break;
                     case "5":
+						ExcluirSerie();
                         break;
                     case "C":
                         Console.Clear();
@@ -125,6 +126,14 @@ namespace Cadastro
                                             ano: entradaAno);
 
                 repositorio.Atualiza(indiceSerie, atualizaSerie);
+            }
+
+            static void ExcluirSerie()
+            {
+                Console.Write("Digite o id da série: ");
+                int indiceSerie = int.Parse(Console.ReadLine());
+
+                repositorio.Exclui(indiceSerie);
             }
 
             static string ObterOpcaoUsuario()
