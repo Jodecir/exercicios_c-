@@ -20,6 +20,7 @@ namespace Cadastro
                         ListarSeries();
                         break;
                     case "3":
+                        VisualizarSerie();
                         break;
                     case "4":
                         break;
@@ -85,6 +86,16 @@ namespace Cadastro
                 }
             }
 
+            static void VisualizarSerie()
+            {
+                Console.Write("Digite o id da série: ");
+                int indiceSerie = int.Parse(Console.ReadLine());
+
+                var serie = repositorio.RetornaPorId(indiceSerie);
+
+                Console.WriteLine(serie);
+            }
+
             static string ObterOpcaoUsuario()
 			{
 				Console.WriteLine();
@@ -93,9 +104,9 @@ namespace Cadastro
 
 				Console.WriteLine("1- Inserir nova série");
 				Console.WriteLine("2- Listar séries");
-				Console.WriteLine("3- Atualizar série");
+				Console.WriteLine("3- Visualizar série");
 				Console.WriteLine("4- Excluir série");
-				Console.WriteLine("5- Visualizar série");
+				Console.WriteLine("5- Atualizar série");
 				Console.WriteLine("C- Limpar Tela");
 				Console.WriteLine("X- Sair");
 				Console.WriteLine();
