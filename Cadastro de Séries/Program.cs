@@ -4,10 +4,8 @@ namespace Cadastro
 {
     internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Serie meuObjeto = new Serie();
-            
             Console.WriteLine("Hello World!");
         }
     }
