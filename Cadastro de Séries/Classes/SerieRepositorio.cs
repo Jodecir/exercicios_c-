@@ -13,7 +13,7 @@ namespace Cadastro
 
 		public void Exclui(int id)
 		{
-			listaSerie[id].Excluir();
+			listaSerie[id].Exclui();
 		}
 
 		public void Insere(Serie objeto)
