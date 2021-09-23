@@ -84,7 +84,7 @@ namespace Cadastro
                 {
                     var excluido = serie.RetornaExcluido();
 
-                    Console.WriteLine("#ID {0}: - {1} {2}", serie.RetornaId(), serie.RetornaTitulo(), (excluido ? "*Excluído*" : ""));
+                    Console.WriteLine("#ID {0}: - {1} {2}", serie.RetornaId(), serie.RetornaTitulo(), excluido ? "*Excluído*" : "");
                 }
             }
 
