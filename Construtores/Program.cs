@@ -1,4 +1,5 @@
 ﻿using System;
+using Construtores.Models;
 
 namespace Construtores
 {
@@ -6,7 +7,8 @@ namespace Construtores
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Pessoa p1 = new Pessoa();
+            p1.Apresentar();
         }
     }
 }
