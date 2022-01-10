@@ -9,9 +9,9 @@ namespace Construtores
         {
             Log log = Log.GetInstance();
             Data data = new();
-            data.SetMes(2);
 
-            data.ApreesentarMes();
+            data.Mes = 12;
+            data.ApresentarMes();
 
             log.PropriedadeLog = "Teste Instância";
 
