@@ -2,8 +2,8 @@ namespace Construtores.Models
 {
     public class Pessoa
     {
-        private string nome;
-        private string sobrenome;
+        private readonly string nome;
+        private readonly string sobrenome;
 
         public Pessoa()
         {
@@ -19,7 +19,7 @@ namespace Construtores.Models
 
         public void Apresentar()
         {
-            System.Console.WriteLine($"Olá meu nome é: {nome} {sobrenome}");    
+            System.Console.WriteLine($"Olá meu nome é: {nome} {sobrenome}");
         }
     }
 }
