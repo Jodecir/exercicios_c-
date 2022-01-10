@@ -3,12 +3,19 @@ using Construtores.Models;
 
 namespace Construtores
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Pessoa p1 = new Pessoa();
-            p1.Apresentar();
+            Log log = Log.GetInstance();
+
+            log.PropriedadeLog = "Teste Instância";
+
+            Log log2 = Log.GetInstance();
+            System.Console.WriteLine(log2.PropriedadeLog);
+
+            // Pessoa p1 = new();
+            // p1.Apresentar();
         }
     }
 }
