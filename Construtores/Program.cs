@@ -8,6 +8,10 @@ namespace Construtores
         private static void Main()
         {
             Log log = Log.GetInstance();
+            Data data = new();
+            data.SetMes(2);
+
+            data.ApreesentarMes();
 
             log.PropriedadeLog = "Teste Instância";
 
