@@ -14,6 +14,9 @@ namespace Construtores
             Log log2 = Log.GetInstance();
             System.Console.WriteLine(log2.PropriedadeLog);
 
+            Aluno aluno = new("Jodecir", "Neto", "Tecnologia", 9);
+            aluno.Apresentar();
+
             // Pessoa p1 = new();
             // p1.Apresentar();
         }
