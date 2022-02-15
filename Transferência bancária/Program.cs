@@ -32,7 +32,6 @@ namespace Banco
           case "C":
 						Console.Clear();
 						break;
-
 					default:
 						throw new ArgumentOutOfRangeException();
 				}
@@ -100,13 +99,12 @@ namespace Banco
 
       listContas[indiceConta].Depositar(valorDeposito);
 		}
-
 		private static void Transferir()
 		{
 			Console.Write("Digite o número da conta de origem: ");
 			int indiceContaOrigem = int.Parse(Console.ReadLine());
 
-            Console.Write("Digite o número da conta de destino: ");
+      Console.Write("Digite o número da conta de destino: ");
 			int indiceContaDestino = int.Parse(Console.ReadLine());
 
 			Console.Write("Digite o valor a ser transferido: ");
